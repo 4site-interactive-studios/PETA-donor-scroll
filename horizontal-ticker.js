@@ -15,7 +15,6 @@ function displayFormat(display) {
     var css = document.createElement('style');
     css.type = 'text/css';
     var styles = `#ticker {
-        min-width: 800px;
         height: 1.1rem;
         overflow: hidden;
         position: relative;
@@ -38,222 +37,40 @@ function displayFormat(display) {
     #ticker li {
       line-height: 1rem;
       list-style: none;
-    }
-    
-    
-    @-webkit-keyframes ticker {
-      0%   {margin-top: 0;}
-      2%  {margin-top: -1rem;}
-      4%  {margin-top: -2rem;}
-      6%  {margin-top: -3rem;}
-      8%  {margin-top: -4rem;}
-      10%  {margin-top: -5rem;}
-      12%  {margin-top: -6rem;}
-      14%  {margin-top: -7rem;}
-      16%  {margin-top: -8rem;}
-      18%  {margin-top: -9rem;}
-      20%  {margin-top: -10rem;}
-      22%  {margin-top: -11rem;}
-      24%  {margin-top: -12rem;}
-      26%  {margin-top: -13rem;}
-      28%  {margin-top: -14rem;}
-      30%  {margin-top: -15rem;}
-      32%  {margin-top: -16rem;}
-      34%  {margin-top: -17rem;}
-      36%  {margin-top: -18rem;}
-      38%  {margin-top: -19rem;}
-      40%  {margin-top: -20rem;}
-      42%  {margin-top: -21rem;}
-      44%  {margin-top: -22rem;}
-      46%  {margin-top: -23rem;}
-      48%  {margin-top: -24rem;}
-      50%  {margin-top: -25rem;}
-      52%  {margin-top: -26rem;}
-      54%  {margin-top: -27rem;}
-      56%  {margin-top: -28rem;}
-      58%  {margin-top: -29rem;}
-      60%  {margin-top: -30rem;}
-      62%  {margin-top: -31rem;}
-      64%  {margin-top: -32rem;}
-      66%  {margin-top: -33rem;}
-      68%  {margin-top: -34rem;}
-      70%  {margin-top: -35rem;}
-      72%  {margin-top: -36rem;}
-      74%  {margin-top: -37rem;}
-      76%  {margin-top: -38rem;}
-      78%  {margin-top: -39rem;}
-      80%  {margin-top: -40rem;}
-      82%  {margin-top: -41rem;}
-      84%  {margin-top: -42rem;}
-      86%  {margin-top: -43rem;}
-      88%  {margin-top: -44rem;}
-      90%  {margin-top: -45rem;}
-      92%  {margin-top: -46rem;}
-      94%  {margin-top: -47rem;}
-      96%  {margin-top: -48rem;}
-      98%  {margin-top: -49rem;}
-      100% {margin-top: 0;}
-    }
-    @-moz-keyframes ticker {
-      0%   {margin-top: 0;}
-      2%  {margin-top: -1rem;}
-      4%  {margin-top: -2rem;}
-      6%  {margin-top: -3rem;}
-      8%  {margin-top: -4rem;}
-      10%  {margin-top: -5rem;}
-      12%  {margin-top: -6rem;}
-      14%  {margin-top: -7rem;}
-      16%  {margin-top: -8rem;}
-      18%  {margin-top: -9rem;}
-      20%  {margin-top: -10rem;}
-      22%  {margin-top: -11rem;}
-      24%  {margin-top: -12rem;}
-      26%  {margin-top: -13rem;}
-      28%  {margin-top: -14rem;}
-      30%  {margin-top: -15rem;}
-      32%  {margin-top: -16rem;}
-      34%  {margin-top: -17rem;}
-      36%  {margin-top: -18rem;}
-      38%  {margin-top: -19rem;}
-      40%  {margin-top: -20rem;}
-      42%  {margin-top: -21rem;}
-      44%  {margin-top: -22rem;}
-      46%  {margin-top: -23rem;}
-      48%  {margin-top: -24rem;}
-      50%  {margin-top: -25rem;}
-      52%  {margin-top: -26rem;}
-      54%  {margin-top: -27rem;}
-      56%  {margin-top: -28rem;}
-      58%  {margin-top: -29rem;}
-      60%  {margin-top: -30rem;}
-      62%  {margin-top: -31rem;}
-      64%  {margin-top: -32rem;}
-      66%  {margin-top: -33rem;}
-      68%  {margin-top: -34rem;}
-      70%  {margin-top: -35rem;}
-      72%  {margin-top: -36rem;}
-      74%  {margin-top: -37rem;}
-      76%  {margin-top: -38rem;}
-      78%  {margin-top: -39rem;}
-      80%  {margin-top: -40rem;}
-      82%  {margin-top: -41rem;}
-      84%  {margin-top: -42rem;}
-      86%  {margin-top: -43rem;}
-      88%  {margin-top: -44rem;}
-      90%  {margin-top: -45rem;}
-      92%  {margin-top: -46rem;}
-      94%  {margin-top: -47rem;}
-      96%  {margin-top: -48rem;}
-      98%  {margin-top: -49rem;}
-      100% {margin-top: 0;}
-    }
-    @-ms-keyframes ticker {
-      0%   {margin-top: 0;}
-      2%  {margin-top: -1rem;}
-      4%  {margin-top: -2rem;}
-      6%  {margin-top: -3rem;}
-      8%  {margin-top: -4rem;}
-      10%  {margin-top: -5rem;}
-      12%  {margin-top: -6rem;}
-      14%  {margin-top: -7rem;}
-      16%  {margin-top: -8rem;}
-      18%  {margin-top: -9rem;}
-      20%  {margin-top: -10rem;}
-      22%  {margin-top: -11rem;}
-      24%  {margin-top: -12rem;}
-      26%  {margin-top: -13rem;}
-      28%  {margin-top: -14rem;}
-      30%  {margin-top: -15rem;}
-      32%  {margin-top: -16rem;}
-      34%  {margin-top: -17rem;}
-      36%  {margin-top: -18rem;}
-      38%  {margin-top: -19rem;}
-      40%  {margin-top: -20rem;}
-      42%  {margin-top: -21rem;}
-      44%  {margin-top: -22rem;}
-      46%  {margin-top: -23rem;}
-      48%  {margin-top: -24rem;}
-      50%  {margin-top: -25rem;}
-      52%  {margin-top: -26rem;}
-      54%  {margin-top: -27rem;}
-      56%  {margin-top: -28rem;}
-      58%  {margin-top: -29rem;}
-      60%  {margin-top: -30rem;}
-      62%  {margin-top: -31rem;}
-      64%  {margin-top: -32rem;}
-      66%  {margin-top: -33rem;}
-      68%  {margin-top: -34rem;}
-      70%  {margin-top: -35rem;}
-      72%  {margin-top: -36rem;}
-      74%  {margin-top: -37rem;}
-      76%  {margin-top: -38rem;}
-      78%  {margin-top: -39rem;}
-      80%  {margin-top: -40rem;}
-      82%  {margin-top: -41rem;}
-      84%  {margin-top: -42rem;}
-      86%  {margin-top: -43rem;}
-      88%  {margin-top: -44rem;}
-      90%  {margin-top: -45rem;}
-      92%  {margin-top: -46rem;}
-      94%  {margin-top: -47rem;}
-      96%  {margin-top: -48rem;}
-      98%  {margin-top: -49rem;}
-      100% {margin-top: 0;}
-    }
-    @keyframes ticker {
-      0%   {margin-top: 0;}
-      2%  {margin-top: -1rem;}
-      4%  {margin-top: -2rem;}
-      6%  {margin-top: -3rem;}
-      8%  {margin-top: -4rem;}
-      10%  {margin-top: -5rem;}
-      12%  {margin-top: -6rem;}
-      14%  {margin-top: -7rem;}
-      16%  {margin-top: -8rem;}
-      18%  {margin-top: -9rem;}
-      20%  {margin-top: -10rem;}
-      22%  {margin-top: -11rem;}
-      24%  {margin-top: -12rem;}
-      26%  {margin-top: -13rem;}
-      28%  {margin-top: -14rem;}
-      30%  {margin-top: -15rem;}
-      32%  {margin-top: -16rem;}
-      34%  {margin-top: -17rem;}
-      36%  {margin-top: -18rem;}
-      38%  {margin-top: -19rem;}
-      40%  {margin-top: -20rem;}
-      42%  {margin-top: -21rem;}
-      44%  {margin-top: -22rem;}
-      46%  {margin-top: -23rem;}
-      48%  {margin-top: -24rem;}
-      50%  {margin-top: -25rem;}
-      52%  {margin-top: -26rem;}
-      54%  {margin-top: -27rem;}
-      56%  {margin-top: -28rem;}
-      58%  {margin-top: -29rem;}
-      60%  {margin-top: -30rem;}
-      62%  {margin-top: -31rem;}
-      64%  {margin-top: -32rem;}
-      66%  {margin-top: -33rem;}
-      68%  {margin-top: -34rem;}
-      70%  {margin-top: -35rem;}
-      72%  {margin-top: -36rem;}
-      74%  {margin-top: -37rem;}
-      76%  {margin-top: -38rem;}
-      78%  {margin-top: -39rem;}
-      80%  {margin-top: -40rem;}
-      82%  {margin-top: -41rem;}
-      84%  {margin-top: -42rem;}
-      86%  {margin-top: -43rem;}
-      88%  {margin-top: -44rem;}
-      90%  {margin-top: -45rem;}
-      92%  {margin-top: -46rem;}
-      94%  {margin-top: -47rem;}
-      96%  {margin-top: -48rem;}
-      98%  {margin-top: -49rem;}
-      100% {margin-top: 0;}
     }`;
-  
+
+    //Webkit Keyframes
+    styles+='@-webkit-keyframes ticker {0%   {margin-top: 0;}';
+    var k=1.98;
+    for (let i = 1; i < 51; i++) {
+            styles += (k*i)+'% {margin-top: -'+ i +'rem;}';
+    };
+    styles += '100% {margin-top: 0;}}';
+
+    //Moz Keyframes
+    styles+='@-moz-keyframes ticker {0%   {margin-top: 0;}';
+    var k=1.98;
+    for (let i = 1; i < 51; i++) {
+            styles += (k*i)+'% {margin-top: -'+ i +'rem;}';
+    };
+    styles += '100% {margin-top: 0;}}';
+
+    //MS Keyframes
+    styles+='@-ms-keyframes ticker {0%   {margin-top: 0;}';
+    var k=1.98;
+    for (let i = 1; i < 51; i++) {
+            styles += (k*i)+'% {margin-top: -'+ i +'rem;}';
+    };
+    styles += '100% {margin-top: 0;}}';
+
+    //Keyframes
+    styles+='@keyframes ticker {0%   {margin-top: 0;}';
+    var k=1.98;
+    for (let i = 1; i < 51; i++) {
+            styles += (k*i)+'% {margin-top: -'+ i +'rem;}';
+    };
+    styles += '100% {margin-top: 0;}}';
+
     if (css.styleSheet)
       css.styleSheet.cssText = styles;
     else
