@@ -18,7 +18,14 @@ function tickerStyleScroll() {
         height: 1.1rem;
         overflow: hidden;
         position: relative;
+        height: 4rem;
         text-align: center;
+        background-color: #e8e8e8;
+        font-size: 1.125rem;
+        font-family: open sans,Arial,Helvetica,sans-serif;
+        color: #555;
+        line-height: 1.4;
+        font-weight: 700;
     } 
     
     #ticker ul {
@@ -37,39 +44,44 @@ function tickerStyleScroll() {
         animation-play-state: paused;
     }
     #ticker li {
-      line-height: 1rem;
+      line-height: 4rem;
       list-style: none;
     }`;
 
   //Webkit Keyframes
   styles += '@-webkit-keyframes ticker {0%   {margin-top: 0;}';
   var k = 1.98;
+  var j =0;
   for (let i = 1; i < 51; i++) {
-    styles += (k * i) + '% {margin-top: -' + i + 'rem;}';
+    j+=4;
+    styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //Moz Keyframes
+  j=0;
   styles += '@-moz-keyframes ticker {0%   {margin-top: 0;}';
-  var k = 1.98;
   for (let i = 1; i < 51; i++) {
-    styles += (k * i) + '% {margin-top: -' + i + 'rem;}';
+    j+=4;
+    styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //MS Keyframes
+  j=0;
   styles += '@-ms-keyframes ticker {0%   {margin-top: 0;}';
-  var k = 1.98;
   for (let i = 1; i < 51; i++) {
-    styles += (k * i) + '% {margin-top: -' + i + 'rem;}';
+    j+=4;
+    styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //Keyframes
+  j=0;
   styles += '@keyframes ticker {0%   {margin-top: 0;}';
-  var k = 1.98;
   for (let i = 1; i < 51; i++) {
-    styles += (k * i) + '% {margin-top: -' + i + 'rem;}';
+    j+=4;
+    styles += (k * i) + '% {margin-top: -' + (j) + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 

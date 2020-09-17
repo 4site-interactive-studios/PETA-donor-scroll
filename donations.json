@@ -47,7 +47,7 @@
         "lastName": "lname7",
         "donationAmt": "3",
         "donationPage": "page1",
-        "anonymous": false
+        "anonymous": true
       },
       {
         "firstName": "fname8",
@@ -187,7 +187,7 @@
         "lastName": "lname13",
         "donationAmt": "3",
         "donationPage": "page1",
-        "anonymous": false
+        "anonymous": true
       },
       {
         "firstName": "fname13",
@@ -229,7 +229,7 @@
         "lastName": "lname13",
         "donationAmt": "3",
         "donationPage": "page1",
-        "anonymous": false
+        "anonymous": true
       },
       {
         "firstName": "fname13",
@@ -327,7 +327,7 @@
         "lastName": "lname13",
         "donationAmt": "3",
         "donationPage": "page1",
-        "anonymous": false
+        "anonymous": true
       },
       {
         "firstName": "fname13",
@@ -341,7 +341,7 @@
         "lastName": "lname13",
         "donationAmt": "3",
         "donationPage": "page1",
-        "anonymous": false
+        "anonymous": true
       },
       {
         "firstName": "fname50",
