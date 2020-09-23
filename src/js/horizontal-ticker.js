@@ -14,7 +14,8 @@ function tickerStyleScroll() {
   /* Create style element */
   var css = document.createElement('style');
   css.type = 'text/css';
-  var styles = `#ticker {
+  var styles = `
+    #ticker {
         height: 1.1rem;
         overflow: hidden;
         position: relative;
@@ -26,6 +27,7 @@ function tickerStyleScroll() {
         color: #555;
         line-height: 1.4;
         font-weight: 700;
+        margin: 0 0 1rem 0;
     } 
     
     #ticker ul {
@@ -106,6 +108,7 @@ function tickerStyleNews() {
           height: 4rem;
           background-color: #e8e8e8;
           box-sizing: content-box;
+          margin: 0 0 1rem 0;
         }
         #ticker-wrap .ticker {
           display: inline-block;
