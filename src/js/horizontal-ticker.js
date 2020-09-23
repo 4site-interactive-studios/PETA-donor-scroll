@@ -223,5 +223,5 @@ xmlhttp.onreadystatechange = function () {
     displayDonations(myObj['donations']);
   }
 };
-xmlhttp.open("GET", "https://raw.githubusercontent.com/4site-interactive-studios/PETA-donor-scroll/master/donations.json", true);
+xmlhttp.open("GET", "https://raw.githubusercontent.com/4site-interactive-studios/PETA-donor-scroll/1.0.2/Assets/donations.json", true);
 xmlhttp.send();
