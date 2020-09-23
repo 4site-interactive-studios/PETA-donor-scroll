@@ -31,8 +31,8 @@ function tickerStyleScroll() {
     } 
     
     #ticker ul {
+        margin-left: 0px !important;
         float: left;
-        padding-left: 20px;
         width: 100%;
         -webkit-animation: ticker 100s cubic-bezier(1, 0, .5, 0) infinite;
         -moz-animation: ticker 100s cubic-bezier(1, 0, .5, 0) infinite;
