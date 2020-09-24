@@ -123,8 +123,9 @@ function tickerStyleNews() {
           animation-timing-function: linear;
           -webkit-animation-name: ticker;
           animation-name: ticker;
-          -webkit-animation-duration: 120s;
-          animation-duration: 120s;
+          -webkit-animation-duration: 250s;
+          animation-duration: 250s;
+          animation-delay: 2s;
         }
         #ticker-wrap .ticker__item {
           display: inline-block;
@@ -155,12 +156,28 @@ function tickerStyleNews() {
         @keyframes ticker {
           0% {
             -webkit-transform: translate3d(10%, 0, 0);
-            transform: translate3d(10%, 0, 0);
+            transform: translate3d(0%, 0, 0);
             visibility: visible;
+          }
+          90% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-90%, 0%, 0);
+          }
+          90.01% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(10%, 80%, 0);
+          }
+          90.02% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(10%, 0, 0);
+          }
+          90.03% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(10%, 0, 0);
           }
           100% {
             -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-100%, 0, 0);
+            transform: translate3d(0%, 0, 0);
           }
         }
       `;
@@ -195,6 +212,8 @@ function appendNewsTicker(donation) {
   }
   str = '<div id="ticker-wrap">' + str + '</div></div>';
   ticker.innerHTML += str;
+  var itemwidth = document.getElementById("#ticker-wrap").offsetWidth;
+  console.log(itemwidth);
 }
 
 
