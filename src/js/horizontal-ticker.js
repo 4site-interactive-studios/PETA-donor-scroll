@@ -125,7 +125,6 @@ function tickerStyleNews() {
           animation-name: ticker;
           -webkit-animation-duration: 250s;
           animation-duration: 250s;
-          animation-delay: 2s;
         }
         #ticker-wrap .ticker__item {
           display: inline-block;
