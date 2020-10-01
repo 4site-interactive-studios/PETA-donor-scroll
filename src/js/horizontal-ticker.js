@@ -48,41 +48,68 @@ function tickerStyleScroll() {
     #ticker li {
       line-height: 4rem;
       list-style: none;
-    }`;
+    }
+    .en__field--donorScrollPreference > .en__field__label{
+      display: none;
+  }
+
+  .en__field--donorScrollPreference .en__field__label--item{
+      font-size: 1rem;
+      width: 100%;
+      vertical-align: top!important;
+  }
+  .Anonymous__alignment{
+      float: right;
+      width: 63%;
+      padding: 0 31px 0 20px;
+  }
+  @media (min-width:601px) and (max-width: 944px){
+      .Anonymous__alignment{
+          float: unset;
+          padding: 0px;
+      }
+  }
+  @media screen and (max-width: 472px){
+      .Anonymous__alignment{
+          float: unset;
+          padding: 0px;
+      }
+  }
+    `;
 
   //Webkit Keyframes
   styles += '@-webkit-keyframes ticker {0%   {margin-top: 0;}';
   var k = 1.98;
-  var j =0;
+  var j = 0;
   for (let i = 1; i < 51; i++) {
-    j+=4;
+    j += 4;
     styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //Moz Keyframes
-  j=0;
+  j = 0;
   styles += '@-moz-keyframes ticker {0%   {margin-top: 0;}';
   for (let i = 1; i < 51; i++) {
-    j+=4;
+    j += 4;
     styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //MS Keyframes
-  j=0;
+  j = 0;
   styles += '@-ms-keyframes ticker {0%   {margin-top: 0;}';
   for (let i = 1; i < 51; i++) {
-    j+=4;
+    j += 4;
     styles += (k * i) + '% {margin-top: -' + j + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
 
   //Keyframes
-  j=0;
+  j = 0;
   styles += '@keyframes ticker {0%   {margin-top: 0;}';
   for (let i = 1; i < 51; i++) {
-    j+=4;
+    j += 4;
     styles += (k * i) + '% {margin-top: -' + (j) + 'rem;}';
   };
   styles += '100% {margin-top: 0;}}';
@@ -180,6 +207,32 @@ function tickerStyleNews() {
             transform: translate3d(0%, 0, 0);
           }
         }
+        .en__field--donorScrollPreference > .en__field__label{
+          display: none;
+      }
+    
+      .en__field--donorScrollPreference .en__field__label--item{
+          font-size: 1rem;
+          width: 100%;
+          vertical-align: top!important;
+      }
+      .Anonymous__alignment{
+          float: right;
+          width: 63%;
+          padding: 0 31px 0 20px;
+      }
+      @media (min-width:601px) and (max-width: 944px){
+          .Anonymous__alignment{
+              float: unset;
+              padding: 0px;
+          }
+      }
+      @media screen and (max-width: 472px){
+          .Anonymous__alignment{
+              float: unset;
+              padding: 0px;
+          }
+      }
       `;
 
   if (css.styleSheet)
@@ -212,11 +265,30 @@ function appendNewsTicker(donation) {
   }
   str = '<div id="ticker-wrap">' + str + '</div></div>';
   ticker.innerHTML += str;
-  var itemwidth = document.getElementById("#ticker-wrap").offsetWidth;
-  console.log(itemwidth);
+  //var itemwidth = document.getElementById("#ticker-wrap").offsetWidth;
+  //console.log(itemwidth);
 }
 
+function displayCheckbox() {
+  const checkbox = document.getElementsByClassName('en__component en__component--formblock en__donation--billing--info');
+  console.log(checkbox);
 
+  var str = `
+    <div class="en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference">
+	  <label class="en__field__label" style="">Donor Recognition</label>
+	  <div class="en__field__element en__field__element--checkbox	">
+	  	<div class="en__field__item Anonymous__alignment">
+	  		<input id="en__field_transaction_donor_scroll_preference" type="checkbox"   class="en__field__input en__field__input--checkbox" name="transaction.  donorScrollPreference">
+	  		<label for="en__field_transaction_donor_scroll_preference"  class="en__field__label en__field__label--item">List my name as "Anonymous"  on the donor scroll.</label>
+	  	</div>
+	  </div>
+    </div>
+  `;
+
+  //str = document.createTextNode(str);
+
+  checkbox[0].innerHTML += str;
+}
 
 function displayDonations(donation) {
   const tickerLayout = document.querySelector('#donor-ticker');
@@ -227,12 +299,15 @@ function displayDonations(donation) {
     switch (tickerLayout.dataset.style) {
       case 'news':
         appendNewsTicker(donation);
+        displayCheckbox();
         break;
       case 'scroll':
         appendScrollTicker(donation);
+        displayCheckbox();
         break;
       default:
         appendNewsTicker(donation);
+        displayCheckbox();
         break;
     }
   }
