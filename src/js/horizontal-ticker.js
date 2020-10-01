@@ -103,7 +103,7 @@ function tickerStyleNews() {
   css.type = 'text/css';
   var styles = `
       #ticker-wrap {
-          width: 98%;
+          width: 99%;
           overflow: hidden;
           height: 5rem;
           box-sizing: content-box;
