@@ -114,7 +114,7 @@ function tickerStyleNews() {
         #ticker-wrap .ticker {
           display: inline-block;
           height: 5rem;
-          line-height: 4rem;
+          line-height: 5rem;
           white-space: nowrap;
           padding-right: 100%;
           box-sizing: content-box;
