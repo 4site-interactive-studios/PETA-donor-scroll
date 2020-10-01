@@ -105,14 +105,15 @@ function tickerStyleNews() {
       #ticker-wrap {
           width: 100%;
           overflow: hidden;
-          height: 4rem;
-          background-color: #e8e8e8;
+          height: 5rem;
           box-sizing: content-box;
           margin: 0 0 1rem 0;
+          border: 3px solid #e9e9e9;
+          border-radius: 10px;
         }
         #ticker-wrap .ticker {
           display: inline-block;
-          height: 4rem;
+          height: 5rem;
           line-height: 4rem;
           white-space: nowrap;
           padding-right: 100%;
