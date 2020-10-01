@@ -9,3 +9,4 @@
  - Displays the first name, first letter of the last name, and the donation amount of the donator
  - Replace the name of the donator when they want to be anonymous
  - Animation pauses when the ticker scrolling has been hovered
+ - It will also append a checkbox under the email address asking if the donator wants to become anonymous(no backend working)
