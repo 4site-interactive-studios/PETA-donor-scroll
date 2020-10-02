@@ -188,19 +188,23 @@ function tickerStyleNews() {
           }
           90% {
             -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(-90%, 0%, 0);
+            transform: translate3d(-87.5%, 0%, 0);
           }
           90.01% {
             -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(10%, 80%, 0);
+            transform: translate3d(-87.5%, 80%, 0);
           }
           90.02% {
             -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(10%, 0, 0);
+            transform: translate3d(9%, 80%, 0);
           }
           90.03% {
             -webkit-transform: translate3d(-100%, 0, 0);
-            transform: translate3d(10%, 0, 0);
+            transform: translate3d(9%, 0, 0);
+          }
+          90.04% {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(9%, 0, 0);
           }
           100% {
             -webkit-transform: translate3d(-100%, 0, 0);
