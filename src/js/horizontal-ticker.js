@@ -248,11 +248,10 @@ function appendScrollTicker(donation) {
   tickerStyleScroll();
   var ticker = document.querySelector('#donor-ticker');
   var str = '<ul>'
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 100; i++) {
     str += '<li>' + displayFormat(donation[i]) + '</li>';
   }
   str = '<div id="ticker">' + str + '</ul></div>';
-  console.log(str);
   ticker.innerHTML += str;
 }
 
@@ -271,7 +270,6 @@ function appendNewsTicker(donation) {
 
 function displayCheckbox() {
   const checkbox = document.getElementsByClassName('en__component en__component--formblock en__donation--billing--info');
-  console.log(checkbox);
 
   var str = `
     <div class="en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference">
@@ -292,7 +290,6 @@ function displayCheckbox() {
 
 function displayDonations(donation) {
   const tickerLayout = document.querySelector('#donor-ticker');
-  console.log(donation);
 
   //Ticker layout Type
   if (tickerLayout.dataset.layout = 'horizontal') {
