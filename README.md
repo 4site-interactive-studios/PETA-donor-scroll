@@ -2,9 +2,10 @@
 
 ## Development
 
-You need to work on file `src/js/horizontal-ticker-source.js` and compile it with Babel to generate the `src/js/horizontal-ticker-source.js` for IE11 support.
-
-You can use this service to compile it online: https://babeljs.io/repl#?browsers=defaults&build=&builtIns=false&spec=false&loose=false&code_lz=Q&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.12.3&externalPlugins=
+1. `git clone` this repository
+2. `npm install` to install dependencies
+3. `npm run build` to build the project
+4. `npm run watch` to start the development server
 
 ## Features
 
