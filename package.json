@@ -26,6 +26,6 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "chance": "^1.1.7"
+    "shuffle-seed": "^1.1.6"
   }
 }
