@@ -516,15 +516,19 @@ export class DonorScroll {
   }
   getSeed() {
     let now = new Date();
-    let hour = now.getHours();
-    return hour + this.getPageId();
+    let day = now.getDate();
+    return day + this.getPageId();
   }
   // Get Donors
   getDonors(total = 50) {
     let seed = this.getSeed();
     let donors = shuffleSeed.shuffle(this.donors, seed);
-    let ret = donors.slice(0, total);
-    //console.log("DonorScroll: getDonors: ", ret);
+    let now = new Date();
+    let hour = now.getHours();
+    let minute = now.getMinutes();
+    let pointer = Math.round((hour * 60 + minute) / 5);
+    let ret = donors.slice(pointer, pointer + total).reverse();
+    // console.log("DonorScroll: getDonors: ", ret);
     return ret;
   }
   displayCheckbox() {
