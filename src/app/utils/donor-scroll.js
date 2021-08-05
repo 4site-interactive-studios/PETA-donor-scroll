@@ -524,7 +524,7 @@ export class DonorScroll {
     let seed = this.getSeed();
     let donors = shuffleSeed.shuffle(this.donors, seed);
     let ret = donors.slice(0, total);
-    console.log("DonorScroll: getDonors: ", ret);
+    //console.log("DonorScroll: getDonors: ", ret);
     return ret;
   }
   displayCheckbox() {
