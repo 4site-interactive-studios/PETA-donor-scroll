@@ -536,21 +536,20 @@ export class DonorScroll {
       "en__component en__component--formblock en__donation--billing--info"
     );
 
-    const str = `
-    <div class="en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference">
-	  <label class="en__field__label" style="">Donor Recognition</label>
+    const element = document.createElement("div");
+    element.className =
+      "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference";
+    element.innerHTML = `<label class="en__field__label" style="">Donor Recognition</label>
 	  <div class="en__field__element en__field__element--checkbox	">
 	  	<div class="en__field__item Anonymous__alignment">
 	  		<input id="en__field_transaction_donor_scroll_preference" type="checkbox"   class="en__field__input en__field__input--checkbox" name="transaction.  donorScrollPreference">
 	  		<label for="en__field_transaction_donor_scroll_preference"  class="en__field__label en__field__label--item">List my name as "Anonymous" on the donor scroll.</label>
 	  	</div>
-	  </div>
-    </div>
-  `;
+	  </div>`;
 
     //str = document.createTextNode(str);
 
-    checkbox[0].innerHTML += str;
+    checkbox[0].appendChild(element);
   }
   appendScrollTicker(donors) {
     let ticker = document.querySelector("#donor-ticker");
