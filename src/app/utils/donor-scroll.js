@@ -1,9 +1,16 @@
 const shuffleSeed = require("shuffle-seed");
 export class DonorScroll {
   constructor() {
+    if (
+      !document.querySelector(".donor-list") &&
+      !document.querySelector("#donor-ticker")
+    )
+      return;
     this.donors = [];
+    this.hasDonors = false;
     const donorList = document.querySelectorAll(".donor-list li");
     if (donorList.length > 0) {
+      this.hasDonors = true;
       for (let i = 0; i < donorList.length; i++) {
         this.donors.push(donorList[i].innerText);
       }
@@ -530,6 +537,7 @@ export class DonorScroll {
   }
   // Get Donors
   getDonors(total = 50) {
+    if (this.donors.length < total) return this.donors;
     let seed = this.getSeed();
     let donors = shuffleSeed.shuffle(this.donors, seed);
     let now = new Date();
@@ -541,60 +549,79 @@ export class DonorScroll {
     return ret;
   }
   displayCheckbox() {
-    const checkbox = document.getElementsByClassName(
-      "en__component en__component--formblock en__donation--billing--info"
-    );
+    const checkbox = document.querySelector(".en__donation--billing--info");
 
-    const element = document.createElement("div");
-    element.className =
-      "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference";
-    element.innerHTML = `<label class="en__field__label" style="">Donor Recognition</label>
-	  <div class="en__field__element en__field__element--checkbox	">
-	  	<div class="en__field__item Anonymous__alignment">
-	  		<input id="en__field_transaction_donor_scroll_preference" type="checkbox"   class="en__field__input en__field__input--checkbox" name="transaction.  donorScrollPreference">
-	  		<label for="en__field_transaction_donor_scroll_preference"  class="en__field__label en__field__label--item">List my name as "Anonymous" on the donor scroll.</label>
-	  	</div>
-	  </div>`;
+    if (checkbox) {
+      // Donor Recognition Translate
+      const labelTranslate =
+        this.getLang() === "es" ? "Reconocimiento" : "Donor Recognition";
+      const textTranslate =
+        this.getLang() === "es"
+          ? 'Pongan mi nombre como "Anónimo" en la lista de donantes.'
+          : 'List my name as "Anonymous" on the donor scroll.';
+      const element = document.createElement("div");
+      element.className =
+        "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference";
+      element.innerHTML = `<label class="en__field__label" style="">${labelTranslate}</label>
+      <div class="en__field__element en__field__element--checkbox
+      ">
+        <div class="en__field__item">
+          <input id="en__field_transaction_donor_scroll_preference" type="checkbox" class="en__field__input en__field__input--checkbox" name="transaction.donorScrollPreference" value="Y">
+          <label for="en__field_transaction_donor_scroll_preference" class="en__field__label en__field__label--item">${textTranslate}</label>
+        </div>
+      </div>`;
 
-    //str = document.createTextNode(str);
+      //str = document.createTextNode(str);
 
-    checkbox[0].appendChild(element);
+      checkbox.appendChild(element);
+    }
   }
   appendScrollTicker(donors) {
-    let ticker = document.querySelector("#donor-ticker");
     let str = "<ul>";
     for (let i = 0; i < donors.length; i++) {
       str += "<li>" + donors[i] + "</li>";
     }
     str = '<div id="ticker-scroll">' + str + "</ul></div>";
-    ticker.innerHTML += str;
+    return str;
   }
   appendNewsTicker(donors) {
-    let ticker = document.querySelector("#donor-ticker");
     let str = '<div class="ticker">';
     for (let i = 0; i < donors.length; i++) {
       str += '<div class="ticker__item">' + donors[i] + "</div>";
     }
     str = '<div id="ticker-news">' + str + "</div></div>";
-    ticker.innerHTML = str;
+    return str;
   }
   displayDonations(donors) {
-    const tickerLayout = document.querySelector("#donor-ticker");
+    if (this.hasDonors) {
+      const donorList = document.querySelector(".donor-list");
+      // Create a new div element
+      const element = document.createElement("div");
+      element.id = "donor-ticker";
+      element.className = "donor-ticker";
+      element.setAttribute("data-style", "news");
+      element.innerHTML = this.appendNewsTicker(donors);
+      // Add element before donor-list
+      donorList.parentNode.insertBefore(element, donorList);
+    } else {
+      let tickerElement = document.querySelector("#donor-ticker");
 
-    //Ticker layout Type
-    if (tickerLayout.dataset.layout == "horizontal") {
-      switch (tickerLayout.dataset.style) {
+      //Ticker layout Type
+      switch (tickerElement.dataset.style) {
         case "news":
-          this.appendNewsTicker(donors);
+          tickerElement.innerHTML = this.appendNewsTicker(donors);
           break;
         case "scroll":
-          this.appendScrollTicker(donors);
+          tickerElement.innerHTML = this.appendScrollTicker(donors);
           break;
         default:
-          this.appendNewsTicker(donors);
+          tickerElement.innerHTML = this.appendNewsTicker(donors);
           break;
       }
-      this.displayCheckbox();
     }
+    this.displayCheckbox();
+  }
+  getLang() {
+    return document.documentElement.lang === "es" ? "es" : "en";
   }
 }
