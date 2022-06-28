@@ -546,15 +546,13 @@ export class DonorScroll {
     let pointer = Math.round((hour * 60 + minute) / 5);
     let ret = donors.slice(pointer, pointer + total).reverse();
     // console.log("DonorScroll: getDonors: ", ret);
-    return ret;
+    return ret.length > 0 ? ret : donors.slice(0, total);
   }
   displayCheckbox() {
     const checkbox = document.querySelector(".en__donation--billing--info");
 
     if (checkbox) {
       // Donor Recognition Translate
-      const labelTranslate =
-        this.getLang() === "es" ? "Reconocimiento" : "Donor Recognition";
       const textTranslate =
         this.getLang() === "es"
           ? 'Pongan mi nombre como "Anónimo" en la lista de donantes.'
@@ -562,7 +560,7 @@ export class DonorScroll {
       const element = document.createElement("div");
       element.className =
         "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference";
-      element.innerHTML = `<label class="en__field__label" style="">${labelTranslate}</label>
+      element.innerHTML = `
       <div class="en__field__element en__field__element--checkbox
       ">
         <div class="en__field__item">
