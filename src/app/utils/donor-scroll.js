@@ -549,7 +549,9 @@ export class DonorScroll {
     return ret.length > 0 ? ret : donors.slice(0, total);
   }
   displayCheckbox() {
-    const checkbox = document.querySelector(".en__donation--billing--info");
+    const checkbox = document.querySelector(
+      ".en__field--emailAddress.en__field"
+    );
 
     if (checkbox) {
       // Donor Recognition Translate
@@ -558,10 +560,12 @@ export class DonorScroll {
           ? 'Pongan mi nombre como "Anónimo" en la lista de donantes.'
           : 'List my name as "Anonymous" on the donor scroll.';
       const element = document.createElement("div");
+      const size = this.getSize();
       element.className =
-        "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference";
+        "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference scroll-" +
+        size;
       element.innerHTML = `
-      <div class="en__field__element en__field__element--checkbox
+      <div class="en__field__item
       ">
         <div class="en__field__item">
           <input id="en__field_transaction_donor_scroll_preference" type="checkbox" class="en__field__input en__field__input--checkbox" name="transaction.donorScrollPreference" value="Y">
@@ -596,7 +600,8 @@ export class DonorScroll {
       // Create a new div element
       const element = document.createElement("div");
       element.id = "donor-ticker";
-      element.className = "donor-ticker";
+      element.classList.add("donor-ticker");
+      element.classList.add("scroll-" + this.getSize());
       element.setAttribute("data-style", "news");
       element.innerHTML = this.appendNewsTicker(donors);
       // Add element before donor-list
@@ -618,6 +623,12 @@ export class DonorScroll {
       }
     }
     this.displayCheckbox();
+  }
+  getSize() {
+    const donorList = document.querySelector(".donor-list");
+    return donorList && !donorList.classList.contains("small")
+      ? "large"
+      : "small";
   }
   getLang() {
     return document.documentElement.lang === "es" ? "es" : "en";

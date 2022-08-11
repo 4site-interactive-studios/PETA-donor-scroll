@@ -38,10 +38,18 @@ div.en__component.donor-list {
   display: none;
 }
 
-.en__field--donorScrollPreference .en__field__label--item {
-  font-size: 1rem;
-  width: 100%;
-  vertical-align: top !important;
+.en__field--donorScrollPreference {
+  padding: 0;
+  .en__field__label--item {
+    font-size: 1rem;
+    width: 100%;
+    vertical-align: top !important;
+  }
+  &.scroll-small {
+    .en__field__label--item {
+      font-size: 0.875rem;
+    }
+  }
 }
 @keyframes tickerScroll {
   0% {
@@ -244,6 +252,17 @@ div.en__component.donor-list {
     }
   }
 }
+.scroll-small {
+  #ticker-news {
+    height: 3rem;
+    border: 2px solid #e9e9e9;
+    .ticker {
+      height: 3rem;
+      line-height: 3rem;
+    }
+  }
+}
+
 @keyframes tickerNews {
   0% {
     -webkit-transform: translate3d(10%, 0, 0);
