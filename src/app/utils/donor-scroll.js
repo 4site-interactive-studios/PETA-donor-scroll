@@ -554,6 +554,15 @@ export class DonorScroll {
     );
 
     if (checkbox) {
+      const donorList = document.querySelector(".donor-list");
+      const marginTop =
+        donorList && donorList.classList.contains("margin-top")
+          ? "margin-top"
+          : "";
+      const marginBottom =
+        donorList && donorList.classList.contains("margin-bottom")
+          ? "margin-bottom"
+          : "";
       // Donor Recognition Translate
       const textTranslate =
         this.getLang() === "es"
@@ -563,7 +572,11 @@ export class DonorScroll {
       const size = this.getSize();
       element.className =
         "en__field en__field--checkbox en__field--000000 en__field--donorScrollPreference scroll-" +
-        size;
+        size +
+        " " +
+        marginTop +
+        " " +
+        marginBottom;
       element.innerHTML = `
       <div class="en__field__item
       ">
