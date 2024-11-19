@@ -522,7 +522,16 @@ export class DonorScroll {
     this.init();
   }
   init() {
-    this.displayDonations(this.getDonors());
+    if (document.readyState === "loading") {
+      // DOM is still loading, so we add an event listener
+      document.addEventListener("DOMContentLoaded", () => {
+          this.displayDonations(this.getDonors());
+      });
+    } else {
+      // DOMContentLoaded has already fired, so we execute immediately
+      this.displayDonations(this.getDonors());
+    }
+  
   }
   getPageId() {
     if ("pageJson" in window && "campaignPageId" in window.pageJson) {
@@ -549,9 +558,19 @@ export class DonorScroll {
     return ret.length > 0 ? ret : donors.slice(0, total);
   }
   displayCheckbox() {
-    const checkbox = document.querySelector(
-      ".en__field--emailAddress.en__field"
-    );
+    let rememberElement = document.querySelector('.rememberme-wrapper.en__field__item');
+    let emailElement = document.querySelector(".en__field--emailAddress.en__field");
+    let petaOptInElement = document.querySelector(".en__field--NOT_TAGGED_9.en__field");
+    let peta2OptInElement = document.querySelector(".en__field--NOT_TAGGED_17.en__field");
+    let mobileElement = document.querySelector(".en__field--NOT_TAGGED_69.en__field");
+
+    if (rememberElement && rememberElement.parentElement  && rememberElement.parentElement.parentElement) 
+      rememberElement = rememberElement.parentElement.parentElement;
+    if ((petaOptInElement && petaOptInElement.parentElement) || (peta2OptInElement && peta2OptInElement.parentElement)) {
+      petaOptInElement = petaOptInElement ? petaOptInElement.parentElement : peta2OptInElement.parentElement;
+    }
+
+    const checkbox = rememberElement || petaOptInElement || mobileElement || emailElement;
 
     if (checkbox) {
       const donorList = document.querySelector(".donor-list");
